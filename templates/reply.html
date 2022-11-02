@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Reply
+{% endblock %}
+
+{% block main %}
+    <form action="/compose" method="post">
+            <div class="form-group">
+                <label for="from"><strong>Form:</strong></label>
+                <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="username" name="sender" type="email" value="{{ emailDetails.recepient }}">
+            </div>
+            <div class="form-group">
+                <label for="to"><strong>To:</strong></label>
+                <input class="form-control mx-auto w-auto" id="recepient" name="recepient" placeholder="Recepient" type="email" value="{{ emailDetails.sender }}">
+            </div>
+            <div class="form-group">
+                <label for="subject"><strong>Subject: </strong></label>
+                <input class="form-control mx-auto w-auto" id="subject" name="subject" placeholder="Subject" type="text" value="{{ emailDetails.subject }}">
+            </div>
+            <br/>
+            <div class="form-group">
+                <textarea name="body" placeholder="type mail here."></textarea>
+            </div>
+            <button class="btn btn-primary" type="submit">Reply</button>
+        </div>
+    </form>
+{% endblock %}

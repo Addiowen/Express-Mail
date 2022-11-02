@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Email
+{% endblock %}
+
+{% block main %}
+    <div class="container-pos">
+      <div class="card">
+         <div class="card-header">
+            <h5>Email info</h5>
+         </div>
+         <div class="card-body view-email">
+            <strong>Sender:</strong> {{ emailDetails.sender }}
+         </div>
+         <div class="card-body view-email">
+            <strong>To:</strong> {{ emailDetails.recepient }}
+         </div>
+         <div class="card-body view-email">
+            <strong>Subject:</strong> {{ emailDetails.subject }}
+         </div>
+         <div class="card-body view-email">
+            <strong>Timestamp:</strong> {{ emailDetails.timestamp }}
+         </div>
+         <div class="card-body view-email">
+            <strong>Body:</strong> {{ emailDetails.body }}
+         </div>
+      </div>
+         <div class="my-3">
+            <form action="reply" method="post">
+                <input type="hidden" name="emailId" value="{{ emailDetails.id}}">
+                <input type="submit" class="btn btn-primary" value="reply">
+            </form>
+         </div>
+    </div>
+{% endblock %}
